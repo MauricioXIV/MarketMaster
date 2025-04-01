@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #F8F9FA;
+  color:black
+}
+
+@layer components {
+  .contacto {
+    @apply bg-blue-100 text-black w-1/6 border-2 border-solid border-gray-100 shadow-lg shadow-slate-500
+    rounded-lg justify-self-start mt-12 text-justify p-4 ;
+  }
+}
+
+@layer components {
+  .contenedor-contacto {
+    @apply flex items-center w-full;
+  }
+}
+
+@layer components {
+  .contenedor-c-informacion {
+    @apply flex flex-wrap items-start h-full justify-center;
+  }
+}
+
+@layer base {
+  p {
+   @apply w-full mb-2;
+  }
+}
+@layer components {
+  .contenedor-informacion {
+    @apply bg-white text-black w-full max-w-md h-full border-2 bg-[#0077B6] border-solid border-gray-100 shadow-lg shadow-slate-500
+    rounded-lg justify-self-center mt-12 flex flex-wrap text-justify p-4 mb-10;
+  }
+}
+
+.text-outline {
+  @apply text-white;
+  text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
