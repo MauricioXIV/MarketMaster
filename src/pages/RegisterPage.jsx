@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../api/login.api";
 import logo from "../images/carrote.jpg"
-import lago from "../images/registro.jpg"
+import cada from "../images/cada.png"
 
 const RegisterPage = () => {
 
@@ -31,7 +31,7 @@ const RegisterPage = () => {
         <div className="text-black flex items-center justify-center flex-wrap border-e-gray-300 shadow-2xl border-solid border-4 w-1/3 min-w-[350px] h-1/2 mt-16 mb-14">
             <div className="w-full text-center text-3xl font-bold font-sans p-5">Registrate</div>
             <div className=" flex w-full justify-center">
-                <img src={lago} className=" w-2/3 h-2/3" />
+                <img src={cada} className=" w-2/3 h-2/3" />
             </div>
             <form onSubmit={onSubmit} className="flex flex-wrap">
                 <div className="w-full h-full">

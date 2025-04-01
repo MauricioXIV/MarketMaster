@@ -24,7 +24,7 @@ function Navigation() {
 
     return (
         <div className="w-full border-b-8 text-sm flex flex-wrap items-center border-[#0077B6]  shadow-xl shadow-slate-500 justify-between rounded-lg bg-[#0077B6] text-white text-outline sm:justify-center md:justify-center">
-        <h1 className="font-bold text-xl xs:w-full sm:w-full h-auto md:w-full lg:w-[48%] mb-4 ml-4 sm:self-center md:self-center md:text-center md:mb-0 md:ml-0 lg:text-left sm:mb-0 sm:ml-0 sm:text-center xs:text-center xs:ml-0 xs:mb-0">Master Market</h1>
+        <h1 className="font-bold text-xl xs:w-full sm:w-full h-auto md:w-full lg:w-[48%] mb-4 ml-4 sm:self-center md:self-center md:text-center md:mb-0 md:ml-0 lg:text-left sm:mb-0 sm:ml-0 sm:text-center xs:text-center xs:ml-0 xs:mb-0">Market Master</h1>
         <div className="lg:w-1/2 xs:w-full md:w-full">
             <div className="flex flex-wrap justify-self-end mt-3 text-white font-roboto rounded-md font-bold md:justify-center sm:justify-center">
                 <Link to="/login/nosotros" className="sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center mr-3 border-y-gray-900 lg:mt-4 xs:mt-4">Nosotros</Link>

@@ -6,6 +6,8 @@ import { data, Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../api/refreshToken"
 import logo from "../images/carroama.jpg"
 import { CartContext } from "../context/CartContext";
+import cada from "../images/cada.png"
+
 const UsersTable = () => {
 
     const { vaciarCarrito } = useContext(CartContext)
@@ -36,7 +38,7 @@ const UsersTable = () => {
         <div className="text-black flex items-center justify-center flex-wrap border-e-gray-300 shadow-2xl border-solid border-4 w-1/3 min-w-[350px] mt-16 mb-14" >
             <div className="w-full text-center text-3xl font-bold font-sans p-5">Inicio de sesión</div>
             <div className="flex w-full justify-evenly text-center items-center border border-stone-100 shadow-xl border-t-4">
-                <img src={logo} className="h-60 w-60"/>
+                <img src={cada} className="h-60 w-60"/>
             </div>
             <form onSubmit={onSubmit} className="flex flex-wrap">
                 <div className="w-full h-full mt-4">
