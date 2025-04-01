@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react-icons/fa', 'lucide-react'],
+      external: ['react-icons/fa'],
     },
   },
 })
