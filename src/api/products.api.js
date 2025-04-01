@@ -5,17 +5,21 @@ const productApi = axios.create({
 })
 
 export const getAllProducts = () => {
-    return productApi.get('/')
+    return productApi.get('/', {
+        withCredentials: true,
+    })
 }
 
 export const getProduct = (id) => {
     return productApi.get('/', {
-        params: { id }
+        params: { id },
+        withCredentials: true,
     })
 }
 
 export const getProductsByCategory = (category) => {
     return productApi.get('/', {
-        params: { category }
+        params: { category },
+        withCredentials: true,
     })
 }

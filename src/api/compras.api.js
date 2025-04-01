@@ -33,7 +33,9 @@ export const postCarrito = async (data) => {
 
 export const initializeCSRF = async () => {
     try {
-      await axios.get('https://fc32-201-130-218-103.ngrok-free.app/login/');
+      await axios.get('https://fc32-201-130-218-103.ngrok-free.app/login/', {
+        withCredentials: true,
+      })
       console.log('CSRF cookie establecida');
     } catch (error) {
       console.error('Error al inicializar CSRF:', error);

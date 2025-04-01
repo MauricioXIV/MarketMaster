@@ -6,23 +6,31 @@ const userApi = axios.create({
 })
 
 export const getAllUsers = () => {
-    return userApi.get('/')
+    return userApi.get('/', {
+      withCredentials: true,
+    })
 }
 
 export const addUser = (user) => {
   try {
-    return userApi.post('/', user)
+    return userApi.post('/', user, {
+      withCredentials: true,
+    })
   } catch (error) {
     console.error('Error al crear usuario', error)
   }
 }
 
 export const deleteUser = (id) => {
-    return userApi.delete(`/${id}/`)
+    return userApi.delete(`/${id}/`, {
+      withCredentials: true,
+    })
 }
 
 export const updateUser = (id, user) => {
-    return userApi.put(`/${id}/`, user)
+    return userApi.put(`/${id}/`, user, {
+      withCredentials: true,
+    })
 }
 
 export const getUser = () => {
@@ -30,7 +38,8 @@ export const getUser = () => {
     return axios.get("https://fc32-201-130-218-103.ngrok-free.app/login/user/profile/", {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-      }
+      },
+      withCredentials: true,
     })
   } catch (error) {
     console.error('Error fetching profile:' , error)
@@ -41,7 +50,8 @@ const login = async (email, password) => {
     try {
       const response = await axios.post('https://fc32-201-130-218-103.ngrok-free.app/login/token/', {
         email,
-        password
+        password,
+        withCredentials: true,
       });
       
       const { access, refresh } = response.data;
@@ -67,7 +77,8 @@ const login = async (email, password) => {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-        }
+        },
+        withCredentials: true,
       })
     } catch (error) {
       console.error('Error fetiching profile:' , error)

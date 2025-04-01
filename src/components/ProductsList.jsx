@@ -14,7 +14,9 @@ const ProductsList = () => {
     setQuery(e.target.value);
     if (e.target.value.length > 2) {
       try {
-        const { data } = await axios.get(`https://fc32-201-130-218-103.ngrok-free.app/productos/set/productos/search/?q=${e.target.value}`);
+        const { data } = await axios.get(`https://fc32-201-130-218-103.ngrok-free.app/productos/set/productos/search/?q=${e.target.value}`,{
+          withCredentials: true,
+        });
         setResultados(data.productos);
         console.log(data.productos);
       } catch (error) {

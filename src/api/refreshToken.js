@@ -39,7 +39,9 @@ axios.interceptors.response.use(
         const response = await axios.post('https://fc32-201-130-218-103.ngrok-free.app/login/token/refresh/', {
           refresh: refreshToken
         }, {
-          skipAuthRefresh: true
+          skipAuthRefresh: true,
+        }, {
+          withCredentials: true,
         });
         
         const newAccessToken = response.data.access;

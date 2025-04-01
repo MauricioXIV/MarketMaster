@@ -11,5 +11,5 @@ export default defineConfig({
   },
 })
 
-export const API_URL = "https://fc32-201-130-218-103.ngrok-free.app";
+export const API_URL = "https://f2ea-201-130-218-103.ngrok-free.app";
 
