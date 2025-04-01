@@ -4,7 +4,7 @@ axios.defaults.withCredentials = true;
 
 
 const compraApi = axios.create({
-    baseURL: 'http://127.0.0.1:8000/compras/set/compras/'
+    baseURL: 'https://fc32-201-130-218-103.ngrok-free.app/compras/set/compras/'
 })
 
 export const getAllPurchases = () => {
@@ -21,7 +21,7 @@ export const getAllPurchases = () => {
 export const postCarrito = async (data) => {
     const accessToken = localStorage.getItem('access_token');
     const csrfToken = getCookie('csrftoken');
-    return axios.post('http://127.0.0.1:8000/compras/set/shop/', data , {
+    return axios.post('https://fc32-201-130-218-103.ngrok-free.app/compras/set/shop/', data , {
         headers: {
             'Authorization': `Bearer ${accessToken}`,
             'X-CSRFToken': csrfToken,
@@ -33,7 +33,7 @@ export const postCarrito = async (data) => {
 
 export const initializeCSRF = async () => {
     try {
-      await axios.get('http://127.0.0.1:8000/login/');
+      await axios.get('https://fc32-201-130-218-103.ngrok-free.app/login/');
       console.log('CSRF cookie establecida');
     } catch (error) {
       console.error('Error al inicializar CSRF:', error);

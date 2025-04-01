@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const productApi = axios.create({
-    baseURL: 'http://localhost:8000/productos/set/productos/'
+    baseURL: 'https://fc32-201-130-218-103.ngrok-free.app/productos/set/productos/'
 })
 
 export const getAllProducts = () => {

@@ -2,7 +2,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 
 const userApi = axios.create({
-    baseURL: 'http://localhost:8000/login/ingreso/'
+    baseURL: 'https://fc32-201-130-218-103.ngrok-free.app/login/ingreso/'
 })
 
 export const getAllUsers = () => {
@@ -27,7 +27,7 @@ export const updateUser = (id, user) => {
 
 export const getUser = () => {
   try {
-    return axios.get("http://localhost:8000/login/user/profile/", {
+    return axios.get("https://fc32-201-130-218-103.ngrok-free.app/login/user/profile/", {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
       }
@@ -39,7 +39,7 @@ export const getUser = () => {
 
 const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:8000/login/token/', {
+      const response = await axios.post('https://fc32-201-130-218-103.ngrok-free.app/login/token/', {
         email,
         password
       });
@@ -63,7 +63,7 @@ const login = async (email, password) => {
 
   export const updateProfile = (data) => {
     try {
-      return axios.put("http://localhost:8000/login/user/profile/editar/", data, {
+      return axios.put("https://fc32-201-130-218-103.ngrok-free.app/login/user/profile/editar/", data, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`
