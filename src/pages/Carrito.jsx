@@ -51,7 +51,7 @@ const Carrito = () => {
             carrito.map((prod) => (
                 <div className="text-zinc-700 border-4 border-gray-200 w-1/4 min-w-[200px] rounded-lg bg-white flex-wrap flex-col justify-center hover:scale-110 transition-transform duration-300 shadow-md shadow-slate-600 h-1/2 hover:bg-gray-200 mt-8" key={prod.id}>
                     <div className="bg-[#0077B6] rounded-lg border-b-4 border-gray-500-600 shadow-2xl"><h1 className="text-3xl justify-self-center text-white font-semibold">{prod.title}</h1></div>
-                    <div className="flex items-center justify-center w-full">  <img src={`http://localhost:8000/media/${prod.image}`} alt={prod.name} className="h-32 w-32 rounded-lg" /> </div>
+                    <div className="flex items-center justify-center w-full">  <img src={`https://backend-mm-production.up.railway.app/media/${prod.image}`} alt={prod.name} className="h-32 w-32 rounded-lg" /> </div>
                     <div className="flex items-center justify-center w-full"><div className="text-2xl">{capitalizeFirstLetter(prod.category)}</div></div>
                     <div>
                         <h2>{prod.description}</h2>
