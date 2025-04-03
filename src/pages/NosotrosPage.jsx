@@ -36,7 +36,7 @@ const NosotrosPage = () => {
         </div>
     </div>
     <div className="contenedor-informacion justify-self-center">
-        <div className="group relative w-full mb-2 font-semibold cursor-pointer z-[1]">
+        <div className="group relative w-full mb-2 font-semibold cursor-pointer z-[5]">
             <p>Misión</p>
             <p className="absolute left-0 top-full bg-white shadow-lg font-normal rounded-lg opacity-0 translate-y-5 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 p-4 border-2 border-gray-200 z-40">
             Desde joven, siempre tuve una fascinación por el mundo digital y el comercio.
