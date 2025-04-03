@@ -28,7 +28,7 @@ const PerfilPage = () => {
       <div className='text-center m-0 text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200'>Mi perfil</div>
       <div className="flex items-center mb-6">
         <img 
-          src={`http://127.0.0.1:8000${userData.image}`} 
+          src={`https://backend-mm-production.up.railway.app${userData.image}`} 
           alt="User avatar" 
           className="w-20 h-20 rounded-full object-cover mr-6 border-[3px] border-gray-100"
         />

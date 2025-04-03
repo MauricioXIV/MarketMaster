@@ -38,7 +38,7 @@ const Product = ({ product }) => {
                   <h1 className="text-3xl justify-self-center text-white font-semibold">{product.title}</h1>
               </div>
               <div className="flex items-center justify-center w-full">
-                  <img src={`http://localhost:8000/media/${product.image}`} alt={product.name} className="rounded-lg h-1/2 w-1/2" />
+                  <img src={`https://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} className="rounded-lg h-1/2 w-1/2" />
               </div>
               <div className="flex items-center justify-center w-full">
                   <div className="text-2xl">{capitalizeFirstLetter(product.category)}</div>
