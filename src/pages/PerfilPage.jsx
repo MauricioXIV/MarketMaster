@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import { getUser } from '../api/login.api';
 import { useNavigate } from 'react-router-dom'
+import avatar from "../images/avatar.jpg"
 
 const PerfilPage = () => {
   
   const [userData, setUserData] = useState({
-    first_name: 'Juan',
-    last_name: 'Pérez García',
-    email: 'juan.perez@example.com',
+    first_name: 'None',
+    last_name: '',
+    email: 'None',
     coins: Math.floor(Math.random() * 1000),
-    image: 'https://randomuser.me/api/portraits/men/75.jpg'
+    image: {avatar}
   });
 
   const navigate = useNavigate()

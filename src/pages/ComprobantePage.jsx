@@ -17,11 +17,10 @@ const ComprobantePage = () => {
     }
 
     const [userData, setUserData] = useState({
-        first_name: 'Juan',
-        last_name: 'Pérez García',
-        email: 'juan.perez@example.com',
-        coins: Math.floor(Math.random() * 1000),
-        image: 'https://randomuser.me/api/portraits/men/75.jpg'
+        first_name: 'None',
+        last_name: '',
+        email: 'None',
+        coins: '0',
       });
 
 
