@@ -2,7 +2,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 
 const userApi = axios.create({
-    baseURL: 'https://backend-mm-production.up.railway.app'
+    baseURL: 'https://backend-mm-production.up.railway.app/login/ingreso'
 })
 
 export const getAllUsers = () => {
