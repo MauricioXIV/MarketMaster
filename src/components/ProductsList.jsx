@@ -69,13 +69,13 @@ const ProductsList = () => {
         <div className="flex flex-wrap justify-center gap-4 p-5 border-8 border-gray-100 shadow-xl shadow-slate-600 mb-32 bg-[#F8F9FA] mx-4">
             {
                 productosMostrar.map((res) => (
-                  <div key={res.id} className="w-full sm:w-1/2 md:w-1/4 lg:w-1/5 min-w-[200px] border-2 border-gray-500 rounded-lg p-4 m-2 bg-white shadow-lg hover:shadow-xl shadow-slate-400 text-zinc-700 hover:bg-gray-200 hover:scale-105 transition-transform duration-300">
+                  <div key={res.id} className="w-full sm:w-1/2 md:w-1/4 lg:w-1/5 min-w-[200px] border-2 border-gray-500 rounded-lg p-4 m-2 bg-white shadow-lg hover:shadow-xl shadow-slate-400 text-zinc-700 hover:bg-gray-200 hover:scale-105 transition-transform duration-300 flex my-auto">
                     <Product product={res} />
                   </div>
                 ))
             }
         </div>
-        <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 min-w-[200px] justify-self-center text-xs mb-4 text-gray-500">Copyright © 2025 El presente canal de instrucción o ambiente,
+        <div className="w-full sm:w-full md:w-1/2 lg:w-1/2 min-w-[200px] lg:justify-self-center md:justify-self-center sm:justify-self-center xs:justify-self-center text-xs mb-4 text-gray-500">Copyright © 2025 El presente canal de instrucción o ambiente,
            es operado por MauricioRodriBalle.com de México, S. de R.L. de C.V. 
            identificada bajo la marca comercial "Master Market".Blvd.
           Miguel de Cervantes Saavedra 13947, Pisos 65 y 290, Granada, Miguel Sánchez, 1152 0 Mazatlán, México. 

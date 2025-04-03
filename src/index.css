@@ -9,7 +9,7 @@ body {
 
 @layer components {
   .contacto {
-    @apply bg-blue-100 text-black w-1/6 border-2 border-solid border-gray-100 shadow-lg shadow-slate-500
+    @apply bg-blue-100 text-black w-1/6 min-w-[180px] min-h-[470px] border-2 border-solid border-gray-100 shadow-lg shadow-slate-500
     rounded-lg justify-self-start mt-12 text-justify p-4 ;
   }
 }
@@ -33,8 +33,8 @@ body {
 }
 @layer components {
   .contenedor-informacion {
-    @apply bg-white text-black w-full max-w-md h-full border-2 bg-[#0077B6] border-solid border-gray-100 shadow-lg shadow-slate-500
-    rounded-lg justify-self-center mt-12 flex flex-wrap text-justify p-4 mb-10;
+    @apply  text-black w-full max-w-[350px] min-w-[250px] h-full border-2 bg-[#0077B6] border-solid border-gray-100 shadow-lg shadow-slate-500
+    rounded-lg justify-self-center mt-12 flex flex-wrap text-justify p-4 mb-10 md:my-48 lg:my-32 sm:my-60 xs:my-80;
   }
 }
 

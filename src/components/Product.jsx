@@ -22,7 +22,7 @@ const Product = ({ product }) => {
                   <h1 className="text-3xl justify-self-center text-white font-semibold">{product.title}</h1>
               </div>
               <div className="flex items-center justify-center w-full">
-                  <img src={`https://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} className="rounded-lg h-32 w-32"/>
+                  <img src={`https://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} className="rounded-lg h-2/3 w-2/3"/>
               </div>
               <div className="flex items-center justify-center w-full">
                   <div className="text-2xl text-[#212529]">{capitalizeFirstLetter(product.category)}</div>

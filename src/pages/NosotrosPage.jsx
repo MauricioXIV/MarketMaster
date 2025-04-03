@@ -49,9 +49,9 @@ const NosotrosPage = () => {
         </div>
     </div>
     <div className="contenedor-informacion justify-self-end">
-        <div className="group relative w-full mb-2 font-semibold cursor-pointer z-0">
+        <div className="group relative w-full mb-2 font-semibold cursor-pointer z-2">
             <p>Visión</p>
-            <p className="absolute left-0 top-full bg-white shadow-lg font-normal rounded-lg opacity-0 translate-y-5 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 p-4 border-2 border-gray-200 z-10">
+            <p className="absolute left-0 top-full bg-white shadow-lg font-normal rounded-lg opacity-0 translate-y-5 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 p-4 border-2 border-gray-200 z-40">
             Mi sueño siempre fue crear una plataforma que no solo conectara a los compradores 
                     con los productos que buscan, sino que también ayudara a los vendedores a maximizar su potencial de venta 
                     de manera fácil y accesible. Queríamos que Master Market fuera un puente entre ambos mundos: el de los 
@@ -63,9 +63,9 @@ const NosotrosPage = () => {
         </div>
     </div>
     <div className="contenedor-informacion justify-self-center">
-        <div className="group relative w-full mb-2 font-semibold cursor-pointer z-0">
+        <div className="group relative w-full mb-2 font-semibold cursor-pointer z-[1]">
             <p>Equipo</p>
-            <p className="absolute left-0 top-full bg-white shadow-lg font-normal rounded-lg opacity-0 translate-y-5 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 p-4 border-2 border-gray-200 z-10">
+            <p className="absolute left-0 top-full bg-white shadow-lg font-normal rounded-lg opacity-0 translate-y-5 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 p-4 border-2 border-gray-200 z-40">
             Con la ayuda de un equipo de colaboradores con la misma pasión y visión, decidimos crear una plataforma que tuviera 
                     como principal objetivo ofrecer productos de calidad, con un servicio al cliente excepcional, y sobre todo, con la 
                     seguridad de que cada transacción fuera rápida y segura.
