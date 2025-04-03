@@ -2,7 +2,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 
 const userApi = axios.create({
-    baseURL: 'https://fc32-201-130-218-103.ngrok-free.app/login/ingreso/'
+    baseURL: 'https://backend-mm-production.up.railway.app'
 })
 
 export const getAllUsers = () => {
@@ -35,7 +35,7 @@ export const updateUser = (id, user) => {
 
 export const getUser = () => {
   try {
-    return axios.get("https://fc32-201-130-218-103.ngrok-free.app/login/user/profile/", {
+    return axios.get("https://backend-mm-production.up.railway.app/login/user/profile/", {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
       },
@@ -48,7 +48,7 @@ export const getUser = () => {
 
 const login = async (email, password) => {
     try {
-      const response = await axios.post('https://fc32-201-130-218-103.ngrok-free.app/login/token/', {
+      const response = await axios.post('https://backend-mm-production.up.railway.app/login/token/', {
         email,
         password,
         withCredentials: true,
@@ -73,7 +73,7 @@ const login = async (email, password) => {
 
   export const updateProfile = (data) => {
     try {
-      return axios.put("https://fc32-201-130-218-103.ngrok-free.app/login/user/profile/editar/", data, {
+      return axios.put("https://backend-mm-production.up.railway.app/login/user/profile/editar/", data, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`
