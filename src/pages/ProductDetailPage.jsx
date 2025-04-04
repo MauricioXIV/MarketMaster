@@ -51,7 +51,7 @@ const ProductDetailPage = () => {
         contador={contador}
         handleRestar={handleRestar}
         handleSumar={handleSumar}
-        handleAgregar={() => { agregarAlCarrito(product, contador) }} />
+        handleAgregar={() => { agregarAlCarrito(product, contador), setContador(0) }} />
         </>
             }
     </div>
