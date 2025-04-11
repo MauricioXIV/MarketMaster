@@ -18,7 +18,7 @@ const NosotrosPage = () => {
                 <a href="https://www.instagram.com/mauricio15ballesteros/" target="_blank" rel="noopener noreferrer" className="mb-2 ml-12"> <FaInstagram /> </a>
                 <a href="https://github.com/MauricioXIV?tab=overview&from=2025-02-01&to=2025-02-18" target="_blank" rel="noopener noreferrer" className="mb-2"> <FaGithub /> </a>
                 <a href="https://www.linkedin.com/in/mauricio-rodr%C3%ADguez-ballesteros-36058a343/" target="_blank" rel="noopener noreferrer" className="mr-12"> <FaLinkedin /> </a>
-                <img src={foto} alt="Foto de Mauricio Rodríguez Ballesteros" className="rounded-full w-40 h-32 mb-4 mt-4 border-2 border-gray-100 shadow-lg shadow-slate-500"/>
+                <img src={grupo} alt="Foto de Mauricio Rodríguez Ballesteros" className="rounded-full w-40 h-32 mb-4 mt-4 border-2 border-gray-100 shadow-lg shadow-slate-500"/>
                 </p>
                 </p>
             </div>
@@ -84,7 +84,7 @@ const NosotrosPage = () => {
                     nuestra plataforma tanto como nosotros disfrutamos crearla para ti. ¡Bienvenido a Master Market, donde cada compra es un paso 
                     hacia un futuro mejor!
                     Gracias por tu confianza, Mauricio Rodríguez Ballesteros. Fundador y CEO de Master Market.
-                <img src={duro} alt="Foto de Mauricio Rodríguez Ballesteros" className="rounded-full w-52 h-52 mb-4 mt-4 border-2 border-gray-100 shadow-lg shadow-slate-500 justify-self-center"/>
+                <img src={futo} alt="Foto de Mauricio Rodríguez Ballesteros" className="rounded-full w-52 h-52 mb-4 mt-4 border-2 border-gray-100 shadow-lg shadow-slate-500 justify-self-center"/>
             </p>
         </div>
     </div>
