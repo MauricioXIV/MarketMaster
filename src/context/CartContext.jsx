@@ -32,7 +32,6 @@ export const CartProvider = ({ children }) => {
     });
 
     const agregarAlCarrito = (product, cantidad) => {
-        console.log(product)
         const productAgregado = {...product, cantidad}
 
         const nuevoCarrito = [...carrito]

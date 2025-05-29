@@ -36,26 +36,10 @@ const ComprobantePage = () => {
             const res = await updateProfile(elDinero);
             try {  
               if (res) {
-                toast.success("MMC actualizados correctamente", {
-                        position: "bottom-right",
-                            style: {
-                            background: "#101010",
-                            color: "#fff",
-                            fontSize: "15px"
-                        }  
-                    }); 
                 setDinero(0)
                 }
               } catch (error) {
                 console.error('Error al actualizar:', error);
-                toast.error("Error al actualizar", {
-                    position: "bottom-right",
-                    style: {
-                        background: "#101010",
-                        color: "#fff",
-                        fontSize: "15px"
-        }
-    });
         }}
         actualizarPerfil()}
       }, [])
