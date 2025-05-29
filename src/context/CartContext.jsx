@@ -15,6 +15,22 @@ export const CartProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState(carritoInicial)
 
+    const [resultados, setResultados] = useState([]);
+
+    const [evito, setEvito] = useState(false)
+
+    const [pam, setPam] = useState(false);
+
+    const [descuento, setDescuento] = useState(() => {
+        const stored = sessionStorage.getItem("descuento");
+        return stored ? JSON.parse(stored) : {};
+    });
+
+    const [suerte, setSuerte] = useState(() => {
+        const lucky = sessionStorage.getItem("suerte");
+        return lucky ? JSON.parse(lucky) : {};
+    });
+
     const agregarAlCarrito = (product, cantidad) => {
         console.log(product)
         const productAgregado = {...product, cantidad}
@@ -33,7 +49,7 @@ export const CartProvider = ({ children }) => {
                 style : {
                     background: "#101010",
                     color: "#fff",
-                    fontSize: "25px"
+                    fontSize: "15px"
                 }
             })
         }
@@ -45,7 +61,7 @@ export const CartProvider = ({ children }) => {
                 style : {
                     background: "#101010",
                     color: "#fff",
-                    fontSize: "25px"
+                    fontSize: "15px"
                 }
             })
         }
@@ -59,13 +75,27 @@ export const CartProvider = ({ children }) => {
             style : {
                 background: "#101010",
                 color: "#fff",
-                fontSize: "25px"
+                fontSize: "15px"
             }
         })
     }
     const vaciarCarrito1 = () => {
         setCarrito([])
     }
+
+    const eliminarDelCarrito = (idProducto) => {
+    const nuevoCarrito = carrito.filter((producto) => producto.id !== idProducto);
+    setCarrito(nuevoCarrito);
+    toast.success("Producto eliminado del carrito", {
+        position: "bottom-right",
+        style: {
+            background: "#101010",
+            color: "#fff",
+            fontSize: "15px"
+        }
+    });
+};
+
 
     const cantidadEnCarrito = () => {
         return carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
@@ -75,10 +105,31 @@ export const CartProvider = ({ children }) => {
         return carrito.reduce((acc, prod) => acc + prod.price * prod.cantidad, 0)
     }
 
+    const agregarDescuento = (productId, porcentaje) => {
+        setDescuento(prev => ({
+            ...prev,
+            [productId]: porcentaje
+        }));
+    };
+
+    const agregarSuerte = (productId, suerte) => {
+        const valorBooleano = suerte === true;
+        setSuerte(prev => {
+        const actualizado = {
+      ...prev,
+      [productId]: valorBooleano
+    };
+    return actualizado;
+  });
+};
+
+
 
     useEffect(() => {
         localStorage.setItem("carrito", JSON.stringify(carrito))
-    }, [carrito])
+        sessionStorage.setItem("descuento", JSON.stringify(descuento));
+        sessionStorage.setItem("suerte", JSON.stringify(suerte));
+    }, [carrito, descuento, suerte])
 
     return(
         <CartContext.Provider value={{
@@ -92,6 +143,19 @@ export const CartProvider = ({ children }) => {
             setRecibir,
             dinero,
             setDinero,
+            resultados,
+            setResultados,
+            descuento,
+            setDescuento,
+            agregarDescuento,
+            suerte,
+            setSuerte,
+            agregarSuerte,
+            eliminarDelCarrito,
+            evito,
+            setEvito,
+            pam,
+            setPam
         }}>
         {children}
         </CartContext.Provider>

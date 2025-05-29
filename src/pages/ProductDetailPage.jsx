@@ -1,17 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProduct } from "../api/products.api";
 import ProductCount from "../components/ProductCount";
 import { CartContext } from "../context/CartContext";
+import flecha from "../images/flecha.png"
 
 const ProductDetailPage = () => {
+
+  const navigate = useNavigate()
 
     function capitalizeFirstLetter(str) {
       if (!str) return ''
       return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-    const {carrito, agregarAlCarrito} = useContext(CartContext)
+    const {carrito, agregarAlCarrito, descuento, suerte} = useContext(CartContext)
 
     const { id } = useParams()
     const [product, setProduct] = useState({})
@@ -35,18 +38,28 @@ const ProductDetailPage = () => {
         setContador(contador + 1)
     }
     function handleRestar() {
-        contador > 1 && setContador(contador - 1)
+        contador > 0 && setContador(contador - 1)
     }
 
 
     return(
-    <div className="text-zinc-700 border-4 border-gray-200 w-1/4 min-w-[200px] rounded-lg bg-white flex-wrap flex-col justify-center shadow-md shadow-slate-400 h-1/2 hover:bg-gray-200 mt-8"> {Object.keys(product).length > 0 &&
+      <>
+    <div className="mt-[60px] text-zinc-700 xs:w-full
+    min-w-[200px] flex-wrap justify-center h-full max-w-[520px] mb-4"> {Object.keys(product).length > 0 &&
         <>
-        <div className="bg-[#0077B6] rounded-lg border-b-4 border-gray-500-600 shadow-2xl"><h1 className="text-3xl justify-self-center text-white font-semibold">{product.title}</h1></div>
-        <div className="flex items-center justify-center w-full">  <img src={`https://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} className="w-2/3 h-2/3 max-h-[300px] rounded-lg" /> </div>
-        <div className="flex items-center justify-center w-full"><div className="text-2xl">{capitalizeFirstLetter(product.category)}</div></div>
-        <div className="max-w-sm text-justify justify-self-center">{product.description}</div>
-        <div className="flex justify-center w-full text-[#14A44D]"><div>${Number(product.price).toLocaleString("es-MX")}</div></div>
+        <div className="w-full flex mb-2 items-center cursor-pointer"><img onClick={() => navigate(-1)} src={flecha} alt="back" className="xs:w-7 xs:h-7" ></img></div>
+        <div className=""><h1 className="xs:text-lg md:text-xl text-black pl-2">{product.title}</h1></div>
+        <div className="xs:text-sm md:text-base text-black pl-2">{product.description}</div>
+        <div className="flex w-full"><div className="xs:text-xs md:text-base flex bg-blue-900 text-white ml-2 mt-1 p-1 rounded-md"> MÁS VENDIDO </div></div>
+        <div className="w-full flex justify-center p-2">
+            <img src={`http://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} />
+        </div>
+        <div className="flex w-full pl-2 xs:max-h-[20px] items-center">
+          <div className="text-black xs:text-xl md:text-2xl font-medium">$ {Number(product.price).toLocaleString("es-MX")}</div><div className="text-green-600 xs:pl-2 xs:text-xs md:text-sm flex items-center">{(descuento[product.id])}% OFF</div>
+        </div>
+        <div className="flex flex-wrap w-full pl-2  my-2 items-center">
+          <div className="xs:text-sm md:text-base font-bold text-green-600 mr-1">Llega {suerte?.[String(id)] === true ? "gratis" : null}</div><div className="xs:text-sm md:text-base font-thin">el viernes</div>
+        </div>
         <ProductCount 
         contador={contador}
         handleRestar={handleRestar}
@@ -55,6 +68,7 @@ const ProductDetailPage = () => {
         </>
             }
     </div>
+    </>
     )
 }
 

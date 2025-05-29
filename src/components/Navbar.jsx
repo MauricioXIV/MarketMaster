@@ -1,9 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import CartWidget from "./CartWidget";
 import { getUser } from "../api/login.api";
+import { Search } from "lucide-react";
+import carreto from  "../images/carreto.png"
+import { CartContext } from "../context/CartContext";
+import axios from "axios";
+import { logoutUser } from "../api/refreshToken";
+import { set } from "react-hook-form";
 
 function Navigation() {
+
+    const navigate = useNavigate()
+
+    const inputRef = useRef(null);
 
     const [userData, setUserData] = useState({
         first_name: 'Juan',
@@ -19,31 +29,69 @@ function Navigation() {
           setUserData(res.data)
         }
         solicitarPerfil()
-      }, [])
+      },[])
 
+      const [query, setQuery] = useState("");
+      const { setResultados, setEvito, setPam } = useContext(CartContext)
+
+
+const handleSearchClick = async () => {
+  const value = inputRef.current.value;
+  if (value.length > 2) {
+    try {
+      const { data } = await axios.get(`http://127.0.0.1:8000/productos/set/productos/search/?q=${value}`, {
+        withCredentials: true,
+      });
+      setResultados(data.productos);
+      navigate('/login/productos');
+      inputRef.current.value = ""; 
+    } catch (error) {
+      console.error("Error en la búsqueda:", error);
+    }
+  }
+};
+
+const handleKeyDown = (e) => {
+  if (e.key === "Enter") {
+    handleSearchClick();
+  }
+};
 
     return (
-        <div className="w-full border-b-8 text-sm flex flex-wrap items-center border-[#0077B6]  shadow-xl shadow-slate-500 justify-between rounded-lg bg-[#0077B6] text-white text-outline sm:justify-center md:justify-center">
-        <h1 className="font-bold text-xl xs:w-full sm:w-full h-auto md:w-full lg:w-[48%] mb-4 ml-4 sm:self-center md:self-center md:text-center md:mb-0 md:ml-0 lg:text-left sm:mb-0 sm:ml-0 sm:text-center xs:text-center xs:ml-0 xs:mb-0">Market Master</h1>
-        <div className="lg:w-1/2 xs:w-full md:w-full">
-            <div className="flex flex-wrap justify-self-end mt-3 text-white font-roboto rounded-md font-bold md:justify-center sm:justify-center">
-                <Link to="/login/nosotros" className="sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center mr-3 border-y-gray-900 lg:mt-4 xs:mt-4">Nosotros</Link>
-                <Link to="/login/productos" className="sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center mr-3 border-y-gray-900 lg:mt-4 xs:mt-4">Inicio</Link>
-                <Link to="/login/productos/hogar" className="sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center mr-3 border-y-gray-900 md:mt-4 lg:mt-4 xs:mt-4 sm:mt-4">Para el hogar</Link>
-                <Link to="/login/productos/tecnologia" className="xs:mt-4 sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] sm:mt-2 shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center mr-3 border-y-gray-900 md:mt-4 lg:mt-4">Tecnología</Link>
-                <Link to="/login/productos/outfit" className="xs:mt-4 sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] sm:mt-2 shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] sm:mr-3 text-center border-y-gray-900 lg:mt-4 md:mt-4 xl:mt-4">Outfit</Link>
-                <div className="flex flex-wrap justify-between mr-20 mt-6 md:justify-center md:mr-0 sm:justify-center sm:mr-0 xs:justify-center sm:w-full">
-                <Link to="/login/perfil" className="sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center mr-3 border-y-gray-900 sm:mt-2 md:mt-0 xs:mt-4">Mi perfil</Link>
-                <Link to="/login" className="sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center mr-3 border-y-gray-900 sm:mt-2 lg:mt-0 md:mt-0 xs:mt-4">Cerrar sesión</Link>
-                <CartWidget className="sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center mr-3 border-y-gray-900" />
-                <Link to="/compras" className="sm:w-1/4 md:w-1/6 lg:w-1/6 min-w-[105px] shadow-lg border-2 sm:h-auto md:h-auto lg:h-auto max-h-[25px] text-center border-y-gray-900 xs:mt-4 md:mt-0">Mis compras</Link>
-                </div>
+          <nav className="navbar bg-[#0077B6]">
+            <div className="xs:w-full flex flex-wrap">
+              <div className="xs:w-1/12 flex items-center justify-end pr-1"><Search onClick={handleSearchClick} className="text-white-500 xs:w-4 xs:h-4 cursor-pointer" /></div>
+                <input
+                type="text"
+                placeholder="Buscar productos..."
+                ref={inputRef}
+                onKeyDown={handleKeyDown}
+                className="rounded-lg border-2 border-gray-500 xs:w-3/4 diminuto:w-1/2 larguito:w-1/6 text-black pl-1 cursor-pointer"
+            />
+            <div className="xs:hidden larguito:flex larguito:w-2/3 larguito:justify-center">
+              <div onClick={() => {navigate('/login/productos') 
+                                            setResultados([])}} 
+              className="puntonav">Inicio</div>
+              <div onClick={() => {navigate('/login/productos/hogar')
+                                            setResultados([])}} 
+              className="puntonav">Hogar</div>
+              <div onClick={() => {navigate('/login/productos/tecnologia')
+                                            setResultados([])}} 
+              className="puntonav">Tecnología</div>
+              <div onClick={() => {navigate('/login/productos/outfit')
+                                            setResultados([])}} 
+              className="puntonav">Outfit</div>
+              <div onClick={() => {navigate('/login/perfil')
+                                            setResultados([])}} 
+              className="puntonav">Perfil</div>
+              <div onClick={() => {navigate('/compras')
+                                            setResultados([])}} 
+              className="puntonav">Compras</div>
+              <div onClick={() => logoutUser()} className="puntonav">Cerrar sesión</div>
             </div>
-        </div>
-        <div className="w-full md:justify-center lg:justify-normal flex">
-        <h1 className="font-bold text-lg w-full min-w-[105px] mb-2 ml-4 md:mt-2 sm:mt-8 md:text-center lg:text-left sm:text-center xs:text-center">¡Bienvenido a la tienda online no. 1 en el mundo, {userData.first_name}!</h1>
-        </div>
-        </div>
+            <div onClick={() => navigate("/login/carrito")} className="xs:w-1/6 diminuto:w-5/12 larguito:w-1/12 flex justify-center cursor-pointer"><img src={carreto} alt="carrito" className="xs:h-5 xs:w-5" /></div>
+            </div>
+            </nav>
     )
 }
 

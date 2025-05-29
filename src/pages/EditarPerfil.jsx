@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { data, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { updateProfile } from "../api/login.api";
+import flecha from "../images/flecha.png"
 
 const EditarPerfil = () => {
 
@@ -49,12 +50,12 @@ const EditarPerfil = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md ">
-      <h2 className="text-2xl font-bold mb-6 text-center">Editar Perfil</h2>
+    <div className="xs:w-full mt-[55px] p-2 peque:max-w-[520px] peque:max-h-[340px] pt-0">
+      <div className="relative xs:w-full xs:text:lg diminuto:text-xl text-black pt-2 pb-8 diminuto:pb-10 justify-center font-semibold text-lg"><div className="absolute w-full flex items-center cursor-pointer z-10"><img onClick={() => navigate(-1)} src={flecha} alt="back" className="relative xs:w-7 xs:h-7 flex items-center justify-center" ></img></div><div className="absolute xs:w-full flex justify-center items-center z-0 ">Editar perfil</div></div>
       
       <form onSubmit={onSubmit} className="space-y-4" encType="multipart/form-data">
         <div>
-          <label className="block text-sm font-medium text-gray-700">Imagen de perfil</label>
+          <label className="block text-sm font-medium text-gray-700 diminuto:text-lg">Imagen de perfil</label>
           <div className="mt-2 flex items-center">
             {preview && (
               <img 
@@ -81,32 +82,34 @@ const EditarPerfil = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Nombre</label>
+          <label className="block text-sm font-medium text-gray-700 diminuto:text-base">Nombre</label>
           <input
             type="text"
             placeholder="First name"
             name="first_name"
             {...register("first_name", {required: true})}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm diminuto:text-base focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         {errors.first_name && <span>This field is required</span>}
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Apellido</label>
+          <label className="block text-sm font-medium text-gray-700 diminuto:text-base">Apellido</label>
           <input
             type="text"
             placeholder="Last name"
             name="last_name"
             {...register("last_name", {required: true})}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 block w-full px-3 py-4 border border-gray-300 diminuto:text-base rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
         {errors.last_name && <span>This field is required</span>}
 
         <button
           type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="w-full flex justify-center p-2 px-4 mt-6 border border-transparent rounded-lg shadow-sm 
+          text-sm diminuto:text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 
+          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           Guardar Cambios
         </button>

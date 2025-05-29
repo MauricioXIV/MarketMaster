@@ -36,7 +36,7 @@ axios.interceptors.response.use(
       }
       
       try {
-        const response = await axios.post('https://backend-mm-production.up.railway.app/login/token/refresh/', {
+        const response = await axios.post('http://backend-mm-production.up.railway.app/login/token/refresh/', {
           refresh: refreshToken
         }, {
           skipAuthRefresh: true,

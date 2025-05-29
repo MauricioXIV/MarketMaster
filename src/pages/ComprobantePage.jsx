@@ -1,6 +1,8 @@
 import React, { act, useContext, useEffect, useState } from "react";
 import { getUser, updateProfile } from "../api/login.api";
 import { CartContext } from "../context/CartContext";
+import flecha from "../images/flecha.png"
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -16,12 +18,9 @@ const ComprobantePage = () => {
         vaciarCarrito1()
     }
 
-    const [userData, setUserData] = useState({
-        first_name: 'None',
-        last_name: '',
-        email: 'None',
-        coins: '0',
-      });
+    const navigate = useNavigate()
+
+    const [userData, setUserData] = useState([]);
 
 
     useEffect(() => {
@@ -37,7 +36,7 @@ const ComprobantePage = () => {
             const res = await updateProfile(elDinero);
             try {  
               if (res) {
-                alert('MM coins actualizados correctamente');
+                console.log('MM coins actualizados correctamente');
                 setDinero(0)
                 }
               } catch (error) {
@@ -50,32 +49,41 @@ const ComprobantePage = () => {
       console.log(total)
 
     return (
+        <>
     
-    <div className="text-black font-semibold flex flex-wrap border-4 border-slate-300 shadow-xl shadow-slate-400 rounded-lg w-1/4 min-w-[325px] mt-8  bg-slate-50">
-    { recibir ? <h2 className="w-full text-center border-2 text-3xl text-lime-500">Tu compra se ha realizado con éxito</h2> : <h2 className="w-full text-center border-2 text-3xl text-red-500">Sin comprobante de compra</h2>}
-            <div className="flex w-full flex-wrap">
-                <div className="flex w-full">
-                    <div className="w-1/5 border-2">Nombre:</div>
-                    <div className="w-4/5 text-center border-2">{userData.first_name} {userData.last_name}</div>
+    <div className="text-black flex flex-wrap w-1/4 xs:min-w-[325px] diminuto:min-w-[425px] peque:min-w-[520px] mt-[55px] p-2 max-h-[340px]">
+    { recibir ? <h2 className="w-full text-xl diminuto:text-2xl peque:text-3xl font-bold flex items-center justify-center text-center diminuto:my-2 peque:my-3">Tu compra se ha realizado con éxito</h2> : 
+    <h2 className="w-full text-center flex items-center justify-center text-xl diminuto:text-2xl peque:3xl text-red-500 diminuto:my-2 peque:my-3">Sin comprobante de compra</h2>}
+            <div className="flex w-full flex-wrap my-2">
+                <div className="flex w-full my-2">
+                    <div className="tabla font-semibold">Cliente:</div>
+                    <div className="tabla w-1/4"> → </div>
+                    <div className="tabla w-1/2">{userData.first_name} {userData.last_name}</div>
                 </div>
-                <div className="flex w-full">
-                    <div className="w-1/5 border-2">Email:</div>
-                    <div className="w-4/5 text-center border-2">{userData.email}</div>
+                <div className="flex w-full my-2">
+                    <div className="tabla font-semibold">Email:</div>
+                    <div className="tabla w-1/4"> → </div>
+                    <div className="tabla w-1/2">{userData.email}</div>
                 </div>
-                <div className="flex w-full">
-                    <div className="w-1/5 border-2">Total de compra:</div>
-                    <div className="w-4/5 text-center border-2">{total}</div>
+                <div className="flex w-full my-2">
+                    <div className="tabla font-semibold">Total de compra:</div>
+                    <div className="tabla w-1/4"> → </div>
+                    <div className="tabla w-1/2">{total} MMC</div>
                 </div>
-                <div className="flex w-full">
-                    <div className="w-1/5 border-2">Método de pago utilizado:</div>
-                    <div className="w-4/5 text-center border-2">MM Coin</div>
+                <div className="flex w-full my-2">
+                    <div className="tabla font-semibold">Método de pago utilizado:</div>
+                    <div className="tabla w-1/4"> → </div>
+                    <div className="tabla w-1/2">MMC</div>
                 </div>
-                <div className="flex w-full">
-                    <div className="w-1/5 border-2">Recibirás en:</div>
-                    <div className="w-4/5 text-center border-2">{recibir}</div>
+                <div className="flex w-full my-2">
+                    <div className="tabla font-semibold">Recibirás en:</div>
+                    <div className="tabla w-1/4"> → </div>
+                    <div className="tabla w-1/2">{recibir}</div>
                 </div>
             </div> 
         </div>
+        <div onClick={() => navigate('/login/productos')} className="w-full xs:mt-6 peque:mt-12 flex justify-center items-center underline xs:text-base peque:text-lg cursor-pointer">Volver al Inicio</div>
+        </>
     )
 }
 

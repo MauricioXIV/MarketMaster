@@ -32,7 +32,7 @@ function App() {
 
   return(
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap justify-center w-full sm:h-full">
     <CartProvider>
     <BrowserRouter>
     {isAuthenticated && <Navigation />}
@@ -41,7 +41,6 @@ function App() {
       <Route path="/login" element={<UsersPage />} />
       <Route path="/register" element={<RegisterPage />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/login/nosotros" element={<NosotrosPage/>} />
           <Route path="/login/productos" element={<ProductsPage/>} />
           <Route path="/login/productos/:category" element={<ProductsPage/>} />
           <Route path="/login/productos/unico/:id" element={<ProductDetailPage />} />

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { getAllPurchases } from "../api/compras.api";
 import Product from "../components/Product";
+import flecha from "../images/flecha.png"
+import { useNavigate } from "react-router-dom";
 
 const MisCompras = () => {
 
     const [products, setProducts] = useState([])
+
+    const navigate = useNavigate()
 
     useEffect(() => {
             async function solicitoCompras() {
@@ -16,18 +20,20 @@ const MisCompras = () => {
         },[])
 
     return (
-        <div className="flex flex-wrap w-full">
-            <h1 className="text-zinc-900 text-3xl font-bold mb-4 mt-3 font-roboto w-full">Historial de compras</h1>
-            <div className="flex gap-4 justify-center flex-wrap p-5 border-4 border-gray-300 shadow-xl mb-32 bg-[#F8F9FA]">
+        <>
+        <div className="flex flex-wrap w-full mt-[55px]">
+            <div className="relative xs:w-full xs:text:lg text-black mb-8 flex justify-center font-semibold text-lg"><div className="absolute w-full flex items-center cursor-pointer z-10"><img onClick={() => navigate(-1)} src={flecha} alt="back" className="relative xs:w-7 xs:h-7 flex items-center justify-center" ></img></div><div className="absolute xs:w-full flex justify-center items-center z-0">Mis compras</div></div>
+            <div className="xs:w-full bg-gray-300 flex flex-wrap p-2 justify-center">
                 {
                     products.map((res) => (
-                        <div key={res.id} className="w-full sm:w-1/2 md:w-1/4 lg:w-1/5 min-w-[200px] border-2 border-gray-500 rounded-lg p-4 m-2 bg-white shadow-lg hover:shadow-xl shadow-slate-400 text-zinc-700 hover:bg-gray-200 flex my-auto">
+                        <div className="w-1/6 xs:min-w-[120px] bg-white flex-wrap justify-center mb-3 border border-gray-400 p-1 mx-4" key={res.id}>
                         <Product key={res.id} product={res} />
                         </div>
                     ))
                 }
             </div>
         </div>
+        </>
     )
 }
 
