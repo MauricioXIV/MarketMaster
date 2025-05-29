@@ -35,7 +35,7 @@ export const updateUser = (id, user) => {
 
 export const getUser = () => {
   try {
-    return axios.get("https://backend-mm-production.up.railway.applogin/user/profile/", {
+    return axios.get("https://backend-mm-production.up.railway.app/login/user/profile/", {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
       },
