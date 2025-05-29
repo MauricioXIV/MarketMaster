@@ -3,6 +3,7 @@ import { data, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { updateProfile } from "../api/login.api";
 import flecha from "../images/flecha.png"
+import toast from "react-hot-toast";
 
 const EditarPerfil = () => {
 

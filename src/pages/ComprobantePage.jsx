@@ -2,6 +2,7 @@ import React, { act, useContext, useEffect, useState } from "react";
 import { getUser, updateProfile } from "../api/login.api";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 

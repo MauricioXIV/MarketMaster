@@ -29,8 +29,6 @@ const Product = ({ product }) => {
         }
     }, [product.id]);
 
-    console.log("ID:", product.id, "→ suerte:", suerte[product.id]);
-
 
 
     return (
