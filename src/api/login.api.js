@@ -2,7 +2,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 
 const userApi = axios.create({
-    baseURL: 'http://backend-mm-production.up.railway.app/login/ingreso'
+    baseURL: 'https://backend-mm-production.up.railway.app/login/ingreso'
 })
 
 export const getAllUsers = () => {
@@ -35,7 +35,7 @@ export const updateUser = (id, user) => {
 
 export const getUser = () => {
   try {
-    return axios.get("http://backend-mm-production.up.railway.applogin/user/profile/", {
+    return axios.get("https://backend-mm-production.up.railway.applogin/user/profile/", {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
       },
@@ -48,7 +48,7 @@ export const getUser = () => {
 
 const login = async (email, password) => {
     try {
-      const response = await axios.post('http://backend-mm-production.up.railway.app/login/token/', {
+      const response = await axios.post('https://backend-mm-production.up.railway.app/login/token/', {
         email,
         password,
         withCredentials: true,
