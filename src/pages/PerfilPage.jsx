@@ -26,7 +26,7 @@ const PerfilPage = () => {
       <div className="relative xs:w-full xs:text:lg diminuto:text-xl text-black my-2 diminuto:mb-6 justify-center font-semibold text-lg"><div className="absolute w-full flex items-center cursor-pointer z-10"><img onClick={() => navigate(-1)} src={flecha} alt="back" className="relative xs:w-7 xs:h-7 flex items-center justify-center" ></img></div><div className="absolute xs:w-full flex justify-center items-center z-0">Mi Perfil</div></div>
       <div className="flex items-center my-6">
         <img 
-          src={`https://backend-mm-production.up.railway.app/${userData.image}`} 
+          src={`https://backend-mm-production.up.railway.app/${userData.image}`}
           alt="User avatar" 
           className="xs:w-16 xs:h-16 diminuto:w-24 diminuto:h-24 rounded-full object-cover border-[3px] border-gray-100"
         />

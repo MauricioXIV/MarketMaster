@@ -4,7 +4,7 @@ axios.defaults.withCredentials = true;
 
 
 const compraApi = axios.create({
-    baseURL: 'https:/backend-mm-production.up.railway.app/compras/set/compras'
+    baseURL: 'https://backend-mm-production.up.railway.app/compras/set/compras/'
 })
 
 export const getAllPurchases = () => {
