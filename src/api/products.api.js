@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const productApi = axios.create({
-    baseURL: 'http://backend-mm-production.up.railway.app/productos/set/productos/'
+    baseURL: 'https://backend-mm-production.up.railway.app/productos/set/productos/'
 })
 
 export const getAllProducts = () => {

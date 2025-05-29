@@ -38,7 +38,7 @@ const Product = ({ product }) => {
         { !product.fecha_compra ? (   
         <div key={product.id} onClick={handleClick} className="flex flex-wrap">
             <div className="w-full flex justify-center m-2 border-b pb-1">
-                  <img src={`http:backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} />
+                  <img src={`https://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} />
             </div>
         <div className="flex flex-wrap items-center h-auto">
               <div className="xs:w-full">
@@ -56,7 +56,7 @@ const Product = ({ product }) => {
         ) : (
             <>
                 <div className="w-full flex justify-center p-1">
-                    <img src={`backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} />
+                    <img src={`https://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} />
                 </div>
                 <div className="mb-1 xs:max-h-[28px]">
                     <h1 className="text-black font-semibold text-xs pl-2">{product.title}</h1>

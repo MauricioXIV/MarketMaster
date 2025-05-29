@@ -39,7 +39,7 @@ const handleSearchClick = async () => {
   const value = inputRef.current.value;
   if (value.length > 2) {
     try {
-      const { data } = await axios.get(`http://127.0.0.1:8000/productos/set/productos/search/?q=${value}`, {
+      const { data } = await axios.get(`https://backend-mm-production.up.railway.app/productos/set/productos/search/?q=${value}`, {
         withCredentials: true,
       });
       setResultados(data.productos);

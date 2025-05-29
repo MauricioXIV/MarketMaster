@@ -73,7 +73,7 @@ const login = async (email, password) => {
 
   export const updateProfile = (data) => {
     try {
-      return axios.put("http://backend-mm-production.up.railway.app/login/user/profile/editar/", data, {
+      return axios.put("https://backend-mm-production.up.railway.app/login/user/profile/editar/", data, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`

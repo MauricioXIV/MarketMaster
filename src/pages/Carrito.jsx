@@ -51,7 +51,7 @@ const Carrito = () => {
                 <div className="w-1/6 xs:min-w-[120px] bg-white flex-wrap justify-center mb-3 border border-gray-400 p-1 mx-4" key={prod.id}>
                     <button onClick={() => eliminarDelCarrito(prod.id)} className="xs:w-full flex justify-end"><img src={x} alt="delete" className="xs:w-3 xs:h-3" /></button>
                     <div className="w-full flex justify-center p-1">
-                        <img src={`backend-mm-production.up.railway.app/media/${prod.image}`} alt={prod.name} />
+                        <img src={`https://backend-mm-production.up.railway.app/media/${prod.image}`} alt={prod.name} />
                     </div>
                     <div className="mb-1 xs:max-h-[28px]">
                         <h1 className="text-black font-semibold text-xs pl-2">{prod.title}</h1>
