@@ -18,8 +18,6 @@ const PerfilPage = () => {
     solicitarPerfil()
   }, [])
 
-  console.log(userData)
-
 
   return (
     <div className="xs:w-full mt-[55px] font-sans flex flex-wrap p-2 pt-0 diminuto:max-w-[520px] max-h-[340px]">

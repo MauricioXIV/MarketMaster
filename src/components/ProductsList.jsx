@@ -38,7 +38,6 @@ const ProductsList = () => {
           withCredentials: true,
         });
         setResultados(data.productos);
-        console.log(data.productos);
       } catch (error) {
         console.error("Error en la búsqueda:", error);
       }

@@ -33,12 +33,26 @@ const EditarPerfil = () => {
         const res = await updateProfile(formData);
         
         if (res) {
+          toast.success("Perfil editado correctamente", {
+            position: "bottom-right",
+            style : {
+                background: "#101010",
+                color: "#fff",
+                fontSize: "15px"
+            }
+        })
           navigate("/login/perfil");
-          alert('Perfil actualizado correctamente');
         }
       } catch (error) {
+        toast.error("Error en la edición del perfil", {
+        position: "bottom-right",
+        style: {
+            background: "#101010",
+            color: "#fff",
+            fontSize: "15px"
+        }
+    });
         console.error('Error al actualizar:', error);
-        alert('Error al actualizar el perfil');
       }
     });
 

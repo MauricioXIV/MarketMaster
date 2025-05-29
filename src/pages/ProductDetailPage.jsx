@@ -40,7 +40,6 @@ const ProductDetailPage = () => {
         contador > 0 && setContador(contador - 1)
     }
 
-    console.log("Producto:", product);
 
     return(
       <>

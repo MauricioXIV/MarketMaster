@@ -1,7 +1,6 @@
 import React, { act, useContext, useEffect, useState } from "react";
 import { getUser, updateProfile } from "../api/login.api";
 import { CartContext } from "../context/CartContext";
-import flecha from "../images/flecha.png"
 import { useNavigate } from "react-router-dom";
 
 
@@ -36,17 +35,29 @@ const ComprobantePage = () => {
             const res = await updateProfile(elDinero);
             try {  
               if (res) {
-                console.log('MM coins actualizados correctamente');
+                toast.success("MMC actualizados correctamente", {
+                        position: "bottom-right",
+                            style: {
+                            background: "#101010",
+                            color: "#fff",
+                            fontSize: "15px"
+                        }  
+                    }); 
                 setDinero(0)
                 }
               } catch (error) {
                 console.error('Error al actualizar:', error);
-                alert('Error al actualizar el perfil');
+                toast.error("Error al actualizar", {
+                    position: "bottom-right",
+                    style: {
+                        background: "#101010",
+                        color: "#fff",
+                        fontSize: "15px"
+        }
+    });
         }}
         actualizarPerfil()}
       }, [])
-
-      console.log(total)
 
     return (
         <>
