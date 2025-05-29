@@ -25,7 +25,6 @@ const ProductDetailPage = () => {
         async function solicitarProducto() {
           try {
             const res = await getProduct(id)
-            console.log("Respuesta de la API:", res)
             setProduct(res.data[0] || res.data)
           } catch (error) {
             console.error("Error al cargar el producto:", error);
@@ -41,6 +40,7 @@ const ProductDetailPage = () => {
         contador > 0 && setContador(contador - 1)
     }
 
+    console.log("Producto:", product);
 
     return(
       <>
