@@ -52,7 +52,7 @@ const ProductDetailPage = () => {
         <div className="xs:text-sm md:text-base text-black pl-2">{product.description}</div>
         <div className="flex w-full"><div className="xs:text-xs md:text-base flex bg-blue-900 text-white ml-2 mt-1 p-1 rounded-md"> MÁS VENDIDO </div></div>
         <div className="w-full flex justify-center p-2">
-            <img src={`http://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} />
+            <img src={`https://backend-mm-production.up.railway.app/media/${product.image}`} alt={product.name} />
         </div>
         <div className="flex w-full pl-2 xs:max-h-[20px] items-center">
           <div className="text-black xs:text-xl md:text-2xl font-medium">$ {Number(product.price).toLocaleString("es-MX")}</div><div className="text-green-600 xs:pl-2 xs:text-xs md:text-sm flex items-center">{(descuento[product.id])}% OFF</div>
