@@ -18,6 +18,7 @@ const PerfilPage = () => {
     solicitarPerfil()
   }, [])
 
+  console.log(userData)
 
 
   return (
